@@ -1,3 +1,6 @@
+"""
+mutil-head attention
+"""
 import torch.nn as nn
 from .single import Attention
 
@@ -8,6 +11,9 @@ class MultiHeadedAttention(nn.Module):
     """
 
     def __init__(self, h, d_model, dropout=0.1):
+        """
+        args:
+        """
         super().__init__()
         assert d_model % h == 0
 
@@ -22,6 +28,9 @@ class MultiHeadedAttention(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
 
     def forward(self, query, key, value, mask=None):
+        """
+        
+        """
         batch_size = query.size(0)
 
         # 1) Do all the linear projections in batch from d_model => h x d_k
